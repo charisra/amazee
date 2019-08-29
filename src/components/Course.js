@@ -23,7 +23,12 @@ class Course extends Component {
     // Store allergies from every step
     handleClick = (i, title, allergy) => {
       let arr = this.state.selectedCourses;
-      arr.push(title);
+      if (arr.includes(title)) {
+        let arr2 = arr.filter(item => item !== title)
+        arr = arr2;
+      } else {
+        arr.push(title);
+      }
 
       let allergyArr = this.state.allergy;
       let arrergyArrFinal = [...allergyArr, ...allergy];
@@ -46,18 +51,18 @@ class Course extends Component {
     render() {
     return (
         <div>
-          <h4>Select your {this.props.text} below:</h4>
+          <h4 className="text-center">Select your {this.props.text} below:</h4>
           <div className="card-container">
           {data.map((course,i) => {
             let currentStep;
             course.courseType.map(type => {
-                if(this.props.step == type) {
+                if(this.props.step === type) {
                   currentStep = type;
                 }
               })
               return(
                 currentStep >= 0 && 
-                <Card className="card" key={course.id} onClick={()=>this.handleClick(i, course.title, course.allery)} className={this.state.selectedElement[i] && "selected"}>
+                <Card key={course.id} onClick={()=>this.handleClick(i, course.title, course.allery)} className={this.state.selectedElement[i] ? "selected card": "card"}>
                 <CardActionArea>
                 <CardHeader
                     avatar={

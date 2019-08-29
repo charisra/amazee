@@ -47,6 +47,8 @@ nextStep = (courses, step, allergy) => {
         case 5:
             this.setState({dessert:courses})
             break;
+            default:
+                ;
     }
     this.setState({step: this.state.step + 1})
 }
@@ -54,7 +56,7 @@ nextStep = (courses, step, allergy) => {
     render() {
     return (
         <div>
-            {this.state.step >= 6 ? <h1>Below are your course selections. Bon Appétit... </h1> : <h1>Welcome to the Amazee Labs Restaurant Menu</h1>}
+            {this.state.step >= 6 ? <h1 className="text-center">Below are your course selections. Bon Appétit... </h1> : <h1 className="text-center">Welcome to the Amazee Labs Restaurant Menu</h1>}
             {this.state.step >= 6 ?
             <Results allergy={this.state.allergy} hors={this.state.hors} soup={this.state.soup} fish={this.state.fish} salad={this.state.salad} main={this.state.main} dessert={this.state.dessert}/> :
             <Course step={this.state.step} nextStep={this.nextStep} text={this.state.text}/>
