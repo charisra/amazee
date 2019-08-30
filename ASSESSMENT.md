@@ -1,4 +1,4 @@
-Amazee Labs Restaurant Menu
+Restaurant Menu
 
 ## How to run the project:
 
