@@ -1,4 +1,4 @@
-Restaurant Menu
+React Restaurant Menu
 
 ## How to run the project:
 
